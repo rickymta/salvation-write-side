@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  mysql:
+    build:
+      context: ./database/mysql/
+      dockerfile: Dockerfile
+      args:
+        MYSQL_VERSION: $MYSQL_VERSION
+        MYSQL_DATABASE: $MYSQL_DATABASE
+        MYSQL_USER: $MYSQL_USER
+        MYSQL_PASSWORD: $MYSQL_PASSWORD
+        MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+    container_name: ex-db-mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --default-time-zone=Asia/Ho_Chi_Minh --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+
+  zookeeper:
+    build:
+      context: ./database/message-broker/zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: $ZOOKEEPER_CLIENT_PORT
+      ZOOKEEPER_TICK_TIME: $ZOOKEEPER_TICK_TIME
+    ports:
+      - "2181:2181"
+
+  kafka:
+    build:
+      context: ./database/message-broker/kafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: $KAFKA_BROKER_ID
+      KAFKA_ZOOKEEPER_CONNECT: $KAFKA_ZOOKEEPER_CONNECT
+      KAFKA_ADVERTISED_LISTENERS: $KAFKA_ADVERTISED_LISTENERS
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: $KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
+    ports:
+      - "9092:9092"
+

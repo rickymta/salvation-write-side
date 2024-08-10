@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{1EA30D5A-09AC-4521-9733-F6C09F88A91C}"
+	ProjectSection(SolutionItems) = preProject
+		database\mysql\.dockerignore = database\mysql\.dockerignore
+		.env.example = .env.example
+		database\.gitignore = database\.gitignore
+		database\mysql\Dockerfile = database\mysql\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DCF9639A-5B2E-4539-B21A-FC9162B9BA8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D70AE2AD-6B1A-4F23-90C7-73F597ABDC64}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Salvation.WriteSide", "src\Salvation.WriteSide\Salvation.WriteSide.csproj", "{CBFAA7E2-DBC1-4467-AB4A-0BEE01EAA6DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBFAA7E2-DBC1-4467-AB4A-0BEE01EAA6DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBFAA7E2-DBC1-4467-AB4A-0BEE01EAA6DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBFAA7E2-DBC1-4467-AB4A-0BEE01EAA6DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBFAA7E2-DBC1-4467-AB4A-0BEE01EAA6DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CBFAA7E2-DBC1-4467-AB4A-0BEE01EAA6DF} = {DCF9639A-5B2E-4539-B21A-FC9162B9BA8F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15531B59-759F-409B-A528-688891F67C26}
+	EndGlobalSection
+EndGlobal
